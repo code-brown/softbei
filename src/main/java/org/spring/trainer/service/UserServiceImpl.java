@@ -1,4 +1,4 @@
-package org.spring.trainer.service.impl;
+package org.spring.trainer.service;
 
 import org.spring.trainer.entity.User;
 import org.spring.trainer.mapper.UserMapper;
@@ -38,4 +38,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Integer userid) {
         userMapper.deleteUserById(userid);
     }
+
+    @Override
+    public List<User> findByUserName(String username) {
+        return (List<User>) userMapper.findByUserName(username);
+    }
+
 }

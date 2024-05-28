@@ -22,4 +22,6 @@ public interface UserMapper {
 
     // 根据用户ID删除用户
     void deleteUserById(@Param("userid") Integer userid);
+
+    User findByUserName(String username);
 }

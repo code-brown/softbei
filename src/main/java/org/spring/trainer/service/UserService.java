@@ -19,4 +19,7 @@ public interface UserService {
 
     // 根据用户ID删除用户
     void deleteUserById(Integer userid);
+
+    //根据用户名查找用户
+    List<User> findByUserName(String username);
 }
