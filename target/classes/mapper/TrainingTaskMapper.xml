@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.spring.trainer.mapper.TrainingTaskMapper">
+
+    <select id="findAllTrainingTasks" resultType="org.spring.trainer.entity.TrainingTask">
+        SELECT * FROM TRAINER.TRAINERTASKS
+    </select>
+
+    <select id="findTrainingTaskById" parameterType="int" resultType="org.spring.trainer.entity.TrainingTask">
+        SELECT * FROM TRAINER.TRAINERTASKS WHERE ID = #{id}
+    </select>
+
+    <insert id="addTrainingTask" parameterType="org.spring.trainer.entity.TrainingTask">
+        INSERT INTO TRAINER.TRAINERTASKS(TITLE, DESCRIPTION, IMAGE, TYPE)
+        VALUES(#{title}, #{description}, #{image}, #{type})
+    </insert>
+
+    <update id="updateTrainingTask" parameterType="org.spring.trainer.entity.TrainingTask">
+        UPDATE TRAINER.TRAINERTASKS
+        SET TITLE=#{title}, DESCRIPTION=#{description}, IMAGE=#{image}, TYPE=#{type}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteTrainingTaskById" parameterType="int">
+        DELETE FROM TRAINER.TRAINERTASKS WHERE ID = #{id}
+    </delete>
+
+</mapper>

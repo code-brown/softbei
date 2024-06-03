@@ -2,7 +2,6 @@ package org.spring.trainer.service;
 
 import org.spring.trainer.entity.User;
 import org.spring.trainer.mapper.UserMapper;
-import org.spring.trainer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +10,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private final UserMapper userMapper;
+
     @Autowired
-    private UserMapper userMapper;
+    public UserServiceImpl(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     @Override
     public List<User> findAllUsers() {
@@ -20,8 +23,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(Integer userid) {
-        return userMapper.findUserById(userid);
+    public User findUserByUsername(String username) {
+        User user = userMapper.findUserByUsername(username);
+        if (user == null) {
+            System.out.println("User not found: " + username);
+        } else {
+            System.out.println("User found: " + username);
+        }
+        return user;
     }
 
     @Override
@@ -38,10 +47,4 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Integer userid) {
         userMapper.deleteUserById(userid);
     }
-
-    @Override
-    public List<User> findByUserName(String username) {
-        return (List<User>) userMapper.findByUserName(username);
-    }
-
 }
