@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://36.138.114.105:30918")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);

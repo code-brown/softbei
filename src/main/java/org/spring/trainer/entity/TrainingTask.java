@@ -10,7 +10,6 @@ public class TrainingTask {
     private String endTime;
     private String subjects;
 
-    // Getters and setters
 
     public Integer getId() {
         return id;

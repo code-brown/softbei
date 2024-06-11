@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/training-tasks")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://36.138.114.105:30918"})
 public class TrainingTaskController {
 
     private static final Logger logger = LoggerFactory.getLogger(TrainingTaskController.class);

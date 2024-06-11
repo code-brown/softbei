@@ -1,0 +1,16 @@
+org\spring\trainer\entity\TrainingTask.class
+org\spring\trainer\WebConfig$1.class
+org\spring\trainer\mapper\TrainingTaskMapper.class
+org\spring\trainer\service\UserServiceImpl.class
+org\spring\trainer\WebConfig.class
+org\spring\trainer\entity\Student.class
+org\spring\trainer\controller\StudentController.class
+org\spring\trainer\service\UserService.class
+org\spring\trainer\controller\TrainingTaskController.class
+org\spring\trainer\mapper\UserMapper.class
+org\spring\trainer\controller\UserController.class
+org\spring\trainer\mapper\StudentMapper.class
+org\spring\trainer\entity\User.class
+org\spring\trainer\TrainerApplication.class
+org\spring\trainer\service\StudentService.class
+org\spring\trainer\service\TrainingTaskService.class
