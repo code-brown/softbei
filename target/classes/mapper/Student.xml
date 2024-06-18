@@ -11,7 +11,7 @@
     </resultMap>
 
     <select id="getAllStudents" resultMap="StudentResultMap">
-        SELECT USERID as id, USERNAME as name, TRAINER.TRAINERTASKS.ID as trainernum FROM TRAINER.USERS WHERE USERTYPE = 'Student'
+        SELECT ID as id, USERNAME as name, TRAINER.TRAINERTASKS.ID as trainernum FROM TRAINER.USERS WHERE USERTYPE = 'Student'
     </select>
 
 </mapper>

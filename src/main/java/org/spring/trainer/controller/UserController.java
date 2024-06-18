@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:3000", "http://36.138.114.105:30918"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://36.138.114.105:30918")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -34,15 +34,14 @@ public class UserController {
     @GetMapping("/{username}")
     public ResponseEntity<User> findUserByUsername(@PathVariable String username) {
         User user = userService.findUserByUsername(username);
-        if (user != null) {
-            return ResponseEntity.ok(user);
-        } else {
+        if (user == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
+    public ResponseEntity<String> login(@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
         String usertype = user.getUsertype();
@@ -51,23 +50,22 @@ public class UserController {
 
         if (username == null || password == null || usertype == null) {
             logger.error("Missing username, password, or usertype");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Missing username, password, or usertype");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("缺少用户名、密码或用户类型");
         }
 
         User dbUser = userService.findUserByUsername(username);
 
-        if (dbUser != null) {
-            logger.debug("User found: {}", dbUser);
-            if (password.equals(dbUser.getPassword()) && usertype.equals(dbUser.getUsertype())) {
-                return ResponseEntity.ok("登录成功");
-            } else {
-                logger.warn("Invalid credentials for username: {}", username);
-            }
-        } else {
+        if (dbUser == null) {
             logger.warn("User not found with username: {}", username);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("用户名、密码或用户类型错误");
         }
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("用户名、密码或用户类型错误");
+        if (password.equals(dbUser.getPassword()) && usertype.equals(dbUser.getUsertype())) {
+            return ResponseEntity.ok("登录成功");
+        } else {
+            logger.warn("Invalid credentials for username: {}", username);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("用户名、密码或用户类型错误");
+        }
     }
 
     @PostMapping

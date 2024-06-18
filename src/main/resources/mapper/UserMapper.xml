@@ -21,11 +21,11 @@
     <update id="updateUser" parameterType="org.spring.trainer.entity.User">
         UPDATE TRAINER.USERS
         SET USERNAME = #{username}, PASSWORD = #{password}, USERTYPE = #{usertype}, TEACHERID = #{teacherid},  STUDENTID = #{studentid}
-        WHERE USERID = #{userid}
+        WHERE ID = #{id}
     </update>
 
     <delete id="deleteUserById" parameterType="int">
-        DELETE FROM TRAINER.USERS WHERE USERID = #{userid}
+        DELETE FROM TRAINER.USERS WHERE ID = #{userid}
     </delete>
 
 </mapper>

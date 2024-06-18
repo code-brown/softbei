@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/training-tasks")
-@CrossOrigin(origins = {"http://localhost:3000", "http://36.138.114.105:30918"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://36.138.114.105:30918"}, allowCredentials = "true")
 public class TrainingTaskController {
 
     private static final Logger logger = LoggerFactory.getLogger(TrainingTaskController.class);
@@ -59,7 +59,6 @@ public class TrainingTaskController {
             @RequestParam("type") Integer type,
             @RequestParam("startTime") String startTime,
             @RequestParam("endTime") String endTime,
-            @RequestParam("subjects") String subjects,
             @RequestParam("coverImage") MultipartFile coverImage) {
         try {
             TrainingTask trainingTask = new TrainingTask();
@@ -68,7 +67,6 @@ public class TrainingTaskController {
             trainingTask.setType(type);
             trainingTask.setStartTime(startTime);
             trainingTask.setEndTime(endTime);
-            trainingTask.setSubjects(subjects);
 
             // 保存文件到文件系统或数据库
             String fileName = coverImage.getOriginalFilename();

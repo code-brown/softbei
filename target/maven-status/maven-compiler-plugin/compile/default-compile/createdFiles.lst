@@ -1,7 +1,5 @@
 org\spring\trainer\entity\TrainingTask.class
-org\spring\trainer\WebConfig$1.class
 org\spring\trainer\mapper\TrainingTaskMapper.class
-org\spring\trainer\service\UserServiceImpl.class
 org\spring\trainer\WebConfig.class
 org\spring\trainer\entity\Student.class
 org\spring\trainer\controller\StudentController.class

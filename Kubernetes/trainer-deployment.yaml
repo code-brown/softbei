@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trainer
+  labels:
+    app: trainer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trainer
+  template:
+    metadata:
+      labels:
+        app: trainer
+    spec:
+      containers:
+        - name: trainer
+          image: 36.138.114.105:31000/cnsof97011680/trainer:3.2
+          ports:
+            - containerPort: 8080

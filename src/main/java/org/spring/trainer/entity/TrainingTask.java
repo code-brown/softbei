@@ -8,7 +8,7 @@ public class TrainingTask {
     private Integer type;
     private String startTime;
     private String endTime;
-    private String subjects;
+
 
 
     public Integer getId() {
@@ -59,11 +59,5 @@ public class TrainingTask {
         this.endTime = endTime;
     }
 
-    public String getSubjects() {
-        return subjects;
-    }
 
-    public void setSubjects(String subjects) {
-        this.subjects = subjects;
-    }
 }
