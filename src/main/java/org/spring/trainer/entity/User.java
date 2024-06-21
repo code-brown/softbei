@@ -2,7 +2,7 @@ package org.spring.trainer.entity;
 
 public class User {
 
-    private Integer userid;
+    private Integer id;
     private String usertype;
     private String username;
     private String password;
@@ -11,12 +11,12 @@ public class User {
 
     // Getters and Setters
 
-    public Integer getUserid() {
-        return userid;
+    public Integer id() {
+        return id;
     }
 
     public void setUserid(Integer userid) {
-        this.userid = userid;
+        this.id = id;
     }
 
     public String getUsertype() {

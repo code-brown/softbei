@@ -81,9 +81,10 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{userid}")
-    public ResponseEntity<Void> deleteUserById(@PathVariable Integer userid) {
-        userService.deleteUserById(userid);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUserById(@PathVariable Integer id) { // 修改了路径变量名
+        userService.deleteUserById(id);
         return ResponseEntity.ok().build();
     }
+
 }

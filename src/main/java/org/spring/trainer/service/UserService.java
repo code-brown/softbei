@@ -39,7 +39,7 @@ public class UserService {
         userMapper.updateUser(user);
     }
 
-    public void deleteUserById(Integer userid) {
-        userMapper.deleteUserById(userid);
+    public void deleteUserById(Integer id) {
+        userMapper.deleteUserById(id);
     }
 }

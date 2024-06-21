@@ -25,7 +25,7 @@
     </update>
 
     <delete id="deleteUserById" parameterType="int">
-        DELETE FROM TRAINER.USERS WHERE ID = #{userid}
+        DELETE FROM TRAINER.USERS WHERE ID = #{id}
     </delete>
 
 </mapper>

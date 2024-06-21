@@ -12,5 +12,6 @@ public interface UserMapper {
     User findUserByUsername(@Param("username") String username);
     void addUser(User user);
     void updateUser(User user);
-    void deleteUserById(@Param("userid") Integer userid);
+    void deleteUserById(@Param("id") Integer id); // 修改了参数名
+
 }
