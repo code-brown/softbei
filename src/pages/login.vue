@@ -6,7 +6,7 @@
           <v-col cols="12" sm="8" md="4">
             <v-card>
               <v-toolbar color="primary" flat>
-                <v-toolbar-title>校园智能实训系统</v-toolbar-title>
+             <v-toolbar-title>校园智能实训系统</v-toolbar-title>
               </v-toolbar>
               <v-card-text>
                 <v-form @submit.prevent="login">
@@ -15,9 +15,9 @@
                   <v-btn type="submit" color="light-blue lighten-1" block>登录</v-btn>
                 </v-form>
               </v-card-text>
-              <v-card-actions>
+              <v-card-actions>   
                 <v-spacer></v-spacer>
-                <v-btn color="primary">注册</v-btn>
+                <v-btn color="primary" @click="redirectToRegisterPage">注册</v-btn>
                 <v-btn text color="light-blue lighten-1" @click="redirectToTeacherPage">教师登录</v-btn>
               </v-card-actions>
             </v-card>
@@ -71,9 +71,11 @@ export default {
     },
     redirectToTeacherPage() {
       this.$router.push('/tealogin');
-
-    }
-  }
+    },
+    redirectToRegisterPage() {
+      this.$router.push('/register');
+  },
+}
 };
 </script>
 
@@ -83,4 +85,5 @@ export default {
   background-image: url('/src/assets/school.jpg'); /* 修改为你的图片路径 */
   background-size: cover;
 }
+
 </style>
